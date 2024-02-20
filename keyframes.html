@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .animate-header {
+            color: rgb(46, 165, 42);
+            text-align: center;
+            animation-name: myanimation;
+            animation-duration: 5s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: 3;
+        }
+
+        @keyframes myanimation {
+            0% {
+                opacity: 100%;
+                transform: translateX(-400px);
+            }
+
+            50% {
+                opacity: 25%;
+            }
+
+            100% {
+                opacity: 100%;
+                font-size: 350px;
+                color: rgb(3, 32, 58);
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="animate-header">S.R</h1>
+</body>
