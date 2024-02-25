@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ 
+        <style>
+            .main-cont{
+                background-color: gray;
+                height: 50vh;
+                width: 50vw;
+                
+            }
+            #display{
+                background-color: aqua;
+                height:90px ;
+                width: 300px;
+            }
+            #submit{
+                width: 150px;
+                height: 100px;
+                background-color: rgb(0, 255, 140);
+
+            }
+            
+            
+        </style>
+        <script>
+            // sub
+        function displayFunction(presentone, presenttwo){
+        let collectedvalue = sub(presentone,presenttwo);
+        document.getElementById("display").innerHTML = 
+        "The Total Amount of Present is : " + collectedvalue;
+        }
+        function sub(numberone, numbertwo){
+            let total = numberone -numbertwo;
+            return total;
+        }
+        function clearFunction(){
+            document.getElementById("display").innerHTML = ""
+        }
+</script>
+    </head>
+    <body>
+     
+       <div class="main-cont">
+        <h2 id="display"></h2>
+        <button class="submit" onclick="displayFunction(1500,10)">INPUT</button>
+        <button class="submit" onclick="clearFunction()">CLEAR</button>
+       </div>
+        
+    </body>
+</html>
