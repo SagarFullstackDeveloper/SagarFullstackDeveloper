@@ -2,216 +2,195 @@
 <html>
 
 <head>
-    <title>Calculator</title>
     <style>
         .main {
-            display: flex;
-            width: 50vw;
+
+            background-color: pink;
             height: 90vh;
+            width: 70vw;
+            display: flex;
             flex-direction: column;
-            background-color: #1e1f22;
-            margin-left: 25vw;
-            border-radius: 10px;
-            padding: 10px;
+            border-radius: 20px;
+            margin-left: 20%;
+            margin-top: 10%;
+
+        }
+
+        .first {
+            background-color: gray;
+            height: 30%;
+            width: 100%;
+            border-radius: 20px;
+
+
+
         }
 
         #display {
-            width: 100%;
-            height: 20%;
-            background-color: #1e1f22;
+
+            height: 60%;
+            width: 90%;
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 20 px;
             color: white;
-            font-size: 50px;
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 10px;
+
         }
 
-        .buttons {
+
+
+        .second-main {
+            background-color: piny;
+            height: 60%;
             width: 100%;
-            height: 80%;
             display: grid;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-        }
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
 
-        .single-button {
-            background-color: red;
-            border-style: solid;
-            border-width: 1px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .gray-button {
-            background-color: #313334;
-        }
 
-        .lightgray-button {
-            background-color: #6b6b6b;
-        }
-        
 
-        .yellow-button {
-            background-color:red;
         }
 
         button {
-            color: white;
-            font-size: 22px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
             height: 100%;
             width: 100%;
+            background-color: rgb(0, 0, 0);
+            border-radius: 20px;
+            color: yellowgreen;
+            font-size: xx-large;
         }
 
-        .lastrow {
+
+
+
+
+        .last-column {
+            background-color: red;
+        }
+
+        .last-row {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            height: 100%;
+            height: 20%;
             width: 100%;
         }
-        
     </style>
     <script>
-       
-        function displayFunction(){
-            document.getElementById("display").innerHTML="1"
+
+
+
+
+        let total = 0;
+        let displayString = "";
+        let lastresult = 0;
+
+
+        function numberTypes(passnumbers) {
+            displayString = displayString + passnumbers.toString();
+            document.getElementById("display").innerHTML = displayString;
+
+
+            if (passnumbers == 9) {
+                document.getElementById("display").style.backgroundColor = "#35374B";
+
+            } else if (passnumbers == 8) {
+                document.getElementById("display").style.backgroundColor = "blue";
+
+            } else if (passnumbers == 9) {
+                document.getElementById("display").style.backgroundColor = "green";
+
+            } else {
+                document.getElementById("display").style.backgroundColor = "white";
+            }
         }
-        function displayFunction2(){
-                document.getElementById("display").innerHTML="2" 
-            }
-            function displayFunction3(){
-                document.getElementById("display").innerHTML="3" 
-            }
-            function displayFunction4(){
-                document.getElementById("display").innerHTML="4" 
-            }
-            function displayFunction5(){
-                document.getElementById("display").innerHTML="5" 
-            }
-            function displayFunction6(){
-                document.getElementById("display").innerHTML="6" 
-            }
-            function displayFunction7(){
-                document.getElementById("display").innerHTML="7" 
-            }
-            function displayFunction8(){
-                document.getElementById("display").innerHTML="8" 
-            }
-            function displayFunction9(){
-                document.getElementById("display").innerHTML="9"
-            }
-            function clearFunction(){
-                document.getElementById("display").innerHTML=""
-            }
-            function displayFunctionMinus(){
-                document.getElementById("display").innerHTML="-"
-            }
-            function displayFunctionPlus(){
-                document.getElementById("display").innerHTML="+"
-            }
-            function displayFunctionMultiplication(){
-                document.getElementById("display").innerHTML="*"
-            }
-            function displayFunctionDivision(){
-                document.getElementById("display").innerHTML="÷"
-            }
-            function displayFunctionPercentage(){
-                document.getElementById("display").innerHTML="%"
-            }
-            function clearInterval(){
-                document.getElementById("display").innerHTML=""
-            }
-            function diplayFunctionZero(){
-                document.getElementById("display").innerHTML="0"
-            }
-            function diplayFunctionDot(){
-                document.getElementById("display").innerHTML="."
-            }
+
+        function showresult() {
+            total = total + Number(displayString);
+            displayString = total;
+            document.getElementById("display").innerHTML = displayString;
+
+        }
+
+        function backspace() {
+            displayString = displayString.substring(0, displayString.length - 1);
+            document.getElementById("display").innerHTML = displayString;
+        }
+
+        function clearfunction() {
+            total = 0;
+            displayString = "";
+            document.getElementById("display").innerHTML = "";
+        }
+
+        function add() {
+            total = Number(displayString);
+            displayString = "";
+            document.getElementById("display").innerHTML = displayString;
+
+
+        }
+
+
+        function sub() {
+            total = total - Number(displayString);
+            displayString = "";
+            document.getElementById("display").innerHTML = displayString;
+
+
+        }
+
+        function mul() {
+            total = total * Number(displayString);
+            displayString = "";
+            document.getElementById("display").innerHTML = displayString;
+
+
+        }
     </script>
+
 </head>
 
 <body>
+    <!-- MAIN -->
     <div class="main">
-        <!-- Display -->
-        <div id="display"></div>
-        <div class="buttons">
-            <!-- First ROW -->
-            <div class="row">
-                <div class="single-button gray-button">
-                    <button class="gray-button"onclick="displayFunction3()">AC</button>
-                </div>
-                <div class="single-button gray-button">
-                    <button class="gray-button">+/-</button>
-                </div>
-                <div class="single-button gray-button">
-                    <button class="gray-button">%</button>
-                </div>
-                <div class="single-button">
-                    <button class="yellow-button">/</button>
-                </div>
-            </div>
+        <div class="first ">
 
-            <!-- Second ROW -->
-            <div class="row">
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction7()">7</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction8()">8</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction9()">9</button>
-                </div>
-                <div class="single-button">
-                    <button class="yellow-button">X</button>
-                </div>
-            </div>
-            <!-- Third ROW -->
-            <div class="row">
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction4()">4</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction5()">5</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction6()">6</button>
-                </div>
-                <div class="single-button">
-                    <button class="yellow-button">-</button>
-                </div>
-            </div>
-            <!-- Fourth ROW -->
-            <div class="row">
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button" onclick="displayFunction()">1</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button" onclick="displayFunction2()">2</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction3()">3</button>
-                </div>
-                <div class="single-button">
-                    <button class="yellow-button">+</button>
-                </div>
-            </div>
-            <!-- Fifth ROW -->
-            <div class="lastrow">
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction0()">0</button>
-                </div>
-                <div class="single-button lightgray-button">
-                    <button class="lightgray-button"onclick="displayFunction()">1</button>
-                </div>
-                <div class="single-button">
-                    <button class="yellow-button">=</button>
-                </div>
-            </div>
+            <h1 id="display"></h1>
+
         </div>
+        <div class="second-main">
+            <div><button type="submit" onclick="clearfunction()">AC</button></div>
+            <div><button onclick="backspace()">Backspace</button></div>
+            <div><button type="submit">%</button></div>
+            <div><button type="submit" class="last-column">/</button></div>
+            <div><button onclick="numberTypes(7)">7</button></div>
+            <div><button onclick="numberTypes(8)">8</button></div>
+            <div><button onclick="numberTypes(9)">9</button></div>
+            <div><button type="submit" class="last-column" onclick="mul()">*</button></div>
+            <div><button onclick="numberTypes(4)">4</button></div>
+            <div><button onclick="numberTypes(5)">5</button></div>
+            <div><button onclick="numberTypes(6)">6</button></div>
+            <div><button type="submit" class="last-column" onclick="sub()">-</button></div>
+            <div><button onclick="numberTypes(1)">1</button></div>
+            <div><button onclick="numberTypes(2)">2</button></div>
+            <div><button onclick="numberTypes(3)">3</button></div>
+            <div><button type="submit" class="last-column" onclick="add()">+</button></div>
+        </div>
+        <div class="last-row">
+            <div><button onclick="numberTypes(0)">0</button></div>
+            <div><button onclick="numberTypes()">.</button></div>
+            <div><button class="last-column" onclick="showresult()">=</button></div>
+        </div>
+
+
+
+
     </div>
+
 </body>
 
 </html>
