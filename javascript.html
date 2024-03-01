@@ -1,83 +1,141 @@
 <!DOCTYPE html>
 <html>
-    <head>
- 
-        <style>
-            .main-cont{
-                background-color: gray;
-                height: 50vh;
-                width: 50vw;
-                border-radius: 20px;
-                
-            }
-            #display{
-                background-color:greenyellow;
-                height:120px ;
-                width: 500px;
-            }
-            #submit{
-                width: 150px;
-                height: 100px;
-                background-color: rgb(0, 255, 140);
 
-            }
-            
-        </style>
-        <script>
+<head>
 
-    // add
-        function add(){
-            let firstNo =  document.getElementById("numberone").value; 
-            let SecondNo = document.getElementById("numbertwo").value ;
-            let total = Number(firstNo) + Number(SecondNo);
-            document.getElementById("display").innerHTML = "The Total is" + total;
+    <style>
+        /* main  */
+        .main-cont {
+            background-color: gray;
+            height: 70vh;
+            width: 50vw;
+            border-radius: 20px;
+
         }
-        function clearFunction(){
-            document.getElementById("display").innerHTML = ""
+
+        /* Display-id */
+        #display {
+            background-color: greenyellow;
+            height: 170px;
+            width: 810px;
+            border-radius: 20px;
+        }
+
+        /* submit-id */
+        #submit {
+            width: 150px;
+            height: 100px;
+            background-color: rgb(0, 255, 140);
+
+        }
+
+        .submit {
+            width: 100PX;
+            height: 80PX;
+            margin-left: 20px;
+        }
+
+        .calbut {
+           background-color: burlywood;
+           height: 70px;
+           width: 70px;
+           border-radius: 20px;
+        }
+    </style>
+    <script>
+
+        // add
+
+        let total = 0;
+        let displayString = "";
+        function add() {
+            total = total + Number(displayString);
+            displayString = "";
+            document.getElementById("display").innerHTML = displayString;
+        }
+        function numberTyped(passednumber) {
+            displayString = displayString + passednumber.toString();
+            document.getElementById("display").innerHTML = displayString;
+
+        }
+        function showresult() {
+            total = total + Number(displayString);
+            displayString = total;
+            document.getElementById("display").innerHTML = displayString;
+        }
+
+        function clearFunction() {
+            total = 0;
+            displayString = 0;
+            document.getElementById("display").innerHTML = "";
+            
+        }
+        function Backspace(){
+            displayString = displayString.substring(0, displayString.length -1);
+            document.getElementById("display").innerHTML = displayString;
         }
         // sub
-        function sub(){
-            let firstNo =  document.getElementById("numberone").value; 
-            let SecondNo = document.getElementById("numbertwo").value ;
-            let total = Number(firstNo) - Number(SecondNo);
-            document.getElementById("display").innerHTML = "The Total is" + total;
+
+        function sub() {
+            total = total - Number(displayString);
+            displayString = "";
+            document.getElementById("display").innerHTML = displayString;
         }
-        function multi(){
-            let firstNo =  document.getElementById("numberone").value; 
-            let SecondNo = document.getElementById("numbertwo").value ;
-            let total = Number(firstNo) * Number(SecondNo);
-            document.getElementById("display").innerHTML = "The Total is" + total;
+        function numberTyped(passednumber) {
+            displayString = displayString + passednumber.toString();
+            document.getElementById("display").innerHTML = displayString;
+
         }
-        function div(){
-            let firstNo =  document.getElementById("numberone").value; 
-            let SecondNo = document.getElementById("numbertwo").value ;
-            let total = Number(firstNo) / Number(SecondNo);
-            document.getElementById("display").innerHTML = "The Total is" + total;
+        // multi
+        function multi() {
+            let firstNo = Number(document.getElementById("numberone").value);
+            let SecondNo = Number(document.getElementById("numbertwo").value);
+            total = total * firstNo * SecondNo;
+            document.getElementById("display").innerHTML = "Result = " + total;
         }
-</script>
-    </head>
-    <body>
-     
-       <div class="main-cont">
+        // div
+        function div() {
+            let firstNo = Number(document.getElementById("numberone").value);
+            let SecondNo = Number(document.getElementById("numbertwo").value);
+            total = total / firstNo / SecondNo;
+            document.getElementById("display").innerHTML = "Result = " + total;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="main-cont">
         <h1 id="display"></h1>
-        <input 
-        type="text" 
-        value="0" 
-        id="numberone" 
-        style="width: 150px; height: 60px;">
-        <input 
-        type="text"
-         value="0" 
-        id="numbertwo"
-        style="width: 150px; height: 60px;">
+        <div class="button">
+            <button class="calbut" onclick="numberTyped(1)">1</button>
+            <button class="calbut" onclick="numberTyped(2)">2</button>
+            <button class="calbut" onclick="numberTyped(3)">3</button>
+            <button class="calbut" onclick="numberTyped(4)">4</button>
+            <button class="calbut" onclick="numberTyped(5)">5</button>
+            <button class="calbut" onclick="numberTyped(6)">6</button>
+            <button class="calbut" onclick="numberTyped(7)">7</button>
+            <button class="calbut" onclick="numberTyped(8)">8</button>
+            <button class="calbut" onclick="numberTyped(9)">9</button>
+            <button class="calbut" onclick="showresult()">=</button>
+            <button class="calbut" onclick="numberTyped()">Backspace</button>
+       
+
+        </div>
+        <br>
+        <br>
+        <!-- <input type="" value="" id="numberone" style="width: 300px; height: 80px; margin-left: 20px;">
+        <input type="" value="" id="numbertwo" style="width: 300px; height: 80px; margin-left: 20px;"> -->
 
         <button class="submit" onclick="add()">ADD</button>
+
         <button class="submit" onclick="sub()">SUB</button>
         <button class="submit" onclick="multi()">MULTI</button>
         <button class="submit" onclick="div()">DIVIDE</button>
-        
+
         <button class="submit" onclick="clearFunction()">CLEAR</button>
-       </div>
-        
-    </body>
+    </div>
+
+</body>
+
 </html>

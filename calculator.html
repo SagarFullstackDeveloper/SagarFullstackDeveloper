@@ -86,7 +86,7 @@
 
         let total = 0;
         let displayString = "";
-        let lastresult = 0;
+        let action = 0;
 
 
         function numberTypes(passnumbers) {
@@ -98,18 +98,23 @@
                 document.getElementById("display").style.backgroundColor = "#35374B";
 
             } else if (passnumbers == 8) {
-                document.getElementById("display").style.backgroundColor = "blue";
+                document.getElementById("display").style.backgroundColor = "#35374B";
 
             } else if (passnumbers == 9) {
-                document.getElementById("display").style.backgroundColor = "green";
+                document.getElementById("display").style.backgroundColor = "#35374B";
 
             } else {
-                document.getElementById("display").style.backgroundColor = "white";
+                document.getElementById("display").style.backgroundColor = "#35374B";
             }
         }
 
         function showresult() {
-            total = total + Number(displayString);
+           
+            if(action ==1){
+                total = total + Number(displayString);
+            }else if(action ==2){
+                total = total - Number(displayString);
+            }
             displayString = total;
             document.getElementById("display").innerHTML = displayString;
 
@@ -128,6 +133,7 @@
 
         function add() {
             total = Number(displayString);
+            action = 1;
             displayString = "";
             document.getElementById("display").innerHTML = displayString;
 
@@ -137,6 +143,7 @@
 
         function sub() {
             total = total - Number(displayString);
+            action = 2;
             displayString = "";
             document.getElementById("display").innerHTML = displayString;
 
